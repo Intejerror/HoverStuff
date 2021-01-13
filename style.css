@@ -11,6 +11,7 @@ body{
   margin: 25px;
 }
 .box{
+  margin-top: 100px;
   font-size: 20px;
   font-family: 'Montserrat', sans-serif;
   width: 300px;
@@ -24,41 +25,42 @@ body{
 h2{
   margin-bottom: 20px;
 }
-
-.strap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #fff;
-  width: 300px;
-  height: 300px;
-  clip-path: polygon(50% 90%, 35% 100%, 65% 100%);
-  transition: all .5s ease;
-}
-
 .undercover{
   padding: 25px;
   width: 250px;
   height: 250px;
   position: absolute;
-  top: 100%;
-  left: 0%;
+  top: 0;
+  left: -100%;
   background: #fff;
   color: #000;
   transition: all .5s ease;
+  transform: rotate(-90deg);
+  animation: none;
 }
 .cover, .cover h2{
   transition: all .6s ease;
 }
-.box:hover .strap{
-  top: 100%;
-}
 .box:hover .cover, .box:hover .cover h2{
-  filter: blur(10px);
+  filter: blur(6px);
 }
 .box:hover .undercover{
   top: 0;
   left: 0;
-  opacity: .9;
+  filter: blur(0px);
+  transform: rotate(0deg);
+}
+.box:hover {
+  animation: pulse 4s ease-in-out infinite;  
+  animation-delay: .4s;
+}
+
+@keyframes pulse{
+  0%, 100% {
+    box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 1);
+  }
+  50% {
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 1);
+  }
 }
 
